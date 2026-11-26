@@ -19,11 +19,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// Pratinjau email reset password (sementara, hapus setelah screenshot)
-Route::get('/pratinjau-email', function () {
-    $user = \App\Models\User::first();
-    return (new \Illuminate\Auth\Notifications\ResetPassword('token-contoh'))->toMail($user);
-});
 
 // Masuk tanpa kata sandi lewat tautan email
 Route::middleware('guest')->group(function () {
